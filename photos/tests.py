@@ -25,7 +25,7 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(today_photos)>0)
 
     def test_get_photos_by_date(self):
-        test_date = '2017-03-17'
+        test_date = '2021-08-05'
         date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
         photos_by_date = Image.days_photos(date)
         self.assertTrue(len(photos_by_date) == 0)
