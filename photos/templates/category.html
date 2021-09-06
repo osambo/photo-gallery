@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container"> 
+    <div class="row card-columns"> 
+        <section class="gallery py-5" id="gallery"> 
+            <div class="container"> 
+                <div class="inner-sec-wthree py-lg-5 py-3"> 
+                    <div class="text-center"> 
+                        {% for photos_item in photos %}
+                        <h3 class="tittle_head">Search Results</h3> 
+                        {% if searched_photos %}
+                        <p class="main_p mt-4 mb-4 pt-2 text-center mx-auto">Found {{searched_photos | length}} photos for search {{message}}.</p> 
+                        {% else %}
+                        <p class="main_p mt-4 mb-4 pt-2 text-center mx-auto">Found {{searched_photos | length}} photos for search {{message}}</p> 
+                        {% endif %} 
+                    </div> 
+                    <div class="row news-grids mt-lg-5 mt-4 text-center"> {% for photo in searched_photos%} 
+                        <div class="col-md-4 gal-img" data-toggle="modal" data-target="#{{image.id}}"> 
+                            <a href="#gal1 "><img src="{{photos.Image.url}}" alt="gallery img" class="img-fluid"></a> 
+                        </div> 
+                        <div class="modal fade " id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"> 
+                            <div class="modal-dialog modal-dialog-centered modal-md" role="document"> 
+                                <div class="modal-content modalcard"> 
+                                    <div class="modal-header"> 
+                                        <h5 class="modal-title" id="imageheader">{{image.name}}</h5> 
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                                            <span aria-hidden="true">&times;</span> 
+                                        </button> 
+                                    </div> 
+                                    <div class="modal-body"> 
+                                        <img src="{{photos.Image.url}}" alt="{{photos.name}}" class="img-fluid"> 
+                                        <p class="imgdesc text-center">{{image.description}}</p> 
+                                        <span class="btn btn-sm btn-success">{{image.category}}</span> 
+                                        <a href="locale/{{image.location}}" class="btn btn-sm btn-info">{{image.location}}</a> 
+                                    </div> 
+                                    <div class="modal-footer"> 
+                                        <input class="form-control input-lg" type="text" value="{{image.image_url.url}}" id="{{image.id}}.url"> 
+                                        <button class="btn btn-success btn-sm" onclick="copy('{{image.id}}.url')">Copy </button> 
+                                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close </button> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </section> 
+    </div>
+</div>
+{% endblock %}
