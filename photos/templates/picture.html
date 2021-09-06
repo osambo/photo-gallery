@@ -12,7 +12,7 @@
     <div class="row">
       {% for photos_item in photos %}
       <div class="col-md-3">
-        <a id="link" type="button" style="background-color: rgb(186, 209, 186);" data-toggle="modal" data-target="#exampleModalLong{{photos_item.id}}">
+        <a id="link" type="button" style="background-color: rgb(143, 153, 143);" data-toggle="modal" data-target="#exampleModalLong{{photos_item.id}}">
           <img style="width: 300px;height: 300px;" src="{{photos_item.Image.url}}" class="img-responsive" alt="Image">
         </a>
         <h4 class="text-center" style="color: green;">Location: {{ photos_item.location }} </h4>
@@ -28,10 +28,11 @@
             </div>
             <div class="modal-body" style="text-align: center;">
               <img style="width: 600px;height: 300px;" src="{{photos_item.Image.url}}" class="img-responsive" alt="Image">
-              <h2 class="" style="color: green;">Category: {{ photos_item.categories }} </h2>
+              <h2 class="" style="color: rgb(68, 129, 68);">Category: {{ photos_item.categories }} </h2>
               <h3 class="" style="color: green;">Location: {{ photos_item.location }} </h3>
               <h4 class="" style="color: green;">{{ photos_item.Description }} </h4>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <a class="btn btn-primary" href="http://127.0.0.1:8000/" role="button">Link</a>
            </div>
           </div>
         </div>
