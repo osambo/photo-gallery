@@ -1,0 +1,29 @@
+{%extends 'all-photos/base.html'%}
+
+{% block content %}
+{{block.super}}
+<!-- <div class="container"> -->
+
+    <!-- Looping through photos   -->
+    {% for photos_item in photos %}
+  
+    <div class="row">
+        <div class="col-md-2"></div>
+      <!-- displaying photos image -->
+      <div class="col-xs-6 col-sm-6 col-md-8 col-lg-6">
+        <h2 class="text-center"> {{ photos_item.category }} </h2>
+        <p class="text-center">{{photos_item.description}} </p>
+      <!-- </div> -->
+      <div class="col-md-2"></div>
+    </div>
+  
+    {% empty %}
+    <div class="row">
+      <h4 class="text-center">Photos Yet To Be Uploaded</h4>
+    </div>
+    {% endfor %}
+  
+  <!-- </div> -->
+  
+
+{% endblock %}
