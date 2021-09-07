@@ -92,11 +92,5 @@ class Image(models.Model):
         print(Image)
         return Image
 
-    def __repr__(self):
-        return f'''
-            name: {self.name},
-            description: {self.description},
-            category: {self.category},
-            location: {self.location},
-            Image: {self.Image},
-                '''
+    def __str__(self):
+        return self.name

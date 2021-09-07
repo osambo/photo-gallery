@@ -27,11 +27,11 @@
               </button>
             </div>
             <div class="modal-body" style="text-align: center;">
-              <img style="width: 600px;height: 300px;" src="{{photos_item.Image.url}}" class="img-responsive" alt="Image">
+              <img style="width: 600px;height: 300px;" id="myimage" src="{{photos_item.Image.url}}" class="img-responsive" alt="Image">
               <h2 class="" style="color: rgb(68, 129, 68);">Category: {{ photos_item.categories }} </h2>
               <h3 class="" style="color: green;">Location: {{ photos_item.location }} </h3>
               <h4 class="" style="color: green;">{{ photos_item.Description }} </h4>
-              <button type="button" class="btn btn-primary btn-sm" onclick="copy('{{image.id}}.url')">Share </button> 
+              <button type="button" class="btn btn-primary" onclick="copyToclipboard()">Copy</button>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
               <!-- <a class="btn btn-primary" href="http://127.0.0.1:8000/" role="button">Link</a> -->
            </div>
@@ -46,3 +46,15 @@
     </div>
   </div>
 {% endblock %}
+{%block scripts%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js ">
+    </script>
+    {%bootstrap_javascript%}
+    <script>
+        function copyToclipboard() {
+            var copyText = document.getElementById('myimage').src
+            navigator.clipboard.writeText(copyText)
+            alert('copied to clipboard paste somewhere to see')
+        }
+    </script>
+    {%endblock%}

@@ -35,15 +35,15 @@ def search_results(request):
     if 'image' in request.GET and request.GET['image']:
         search_term = request.GET.get('image')
         print(search_term)
-        searched_photos = Image.search_by_title(search_term)
+        searched_photos = Image.search_by_category(search_term)
         print(searched_photos)
         message = f'{search_term}'
-        params = {
-            'searched_photos': searched_photos,
-            'message': message,
-        }
+      
 
-        return render(request, 'all-photos/search.html',params)
+        return render(request, 'all-photos/search.html', {
+            'images': searched_photos,
+            'message': message,
+        })
 
     else:
         
