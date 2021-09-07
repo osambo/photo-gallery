@@ -38,3 +38,8 @@ As a user of the application I should be able to:
 ## Contact
 
 Email: felixkodhanjo@gmail.com
+
+## License
+
+(MIT) License
+2021 (c) Felix Osambo
