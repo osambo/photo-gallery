@@ -31,8 +31,9 @@
               <h2 class="" style="color: rgb(68, 129, 68);">Category: {{ photos_item.categories }} </h2>
               <h3 class="" style="color: green;">Location: {{ photos_item.location }} </h3>
               <h4 class="" style="color: green;">{{ photos_item.Description }} </h4>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <a class="btn btn-primary" href="http://127.0.0.1:8000/" role="button">Link</a>
+              <button type="button" class="btn btn-primary btn-sm" onclick="copy('{{image.id}}.url')">Share </button> 
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <!-- <a class="btn btn-primary" href="http://127.0.0.1:8000/" role="button">Link</a> -->
            </div>
           </div>
         </div>
